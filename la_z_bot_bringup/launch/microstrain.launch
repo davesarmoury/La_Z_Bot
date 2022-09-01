@@ -1,0 +1,15 @@
+<?xml version="1.1"?>
+
+<launch>
+  <arg name="namespace"   default = "/"                           doc = "Namespace to use when launching the nodes in this launch file" />
+  <arg name="node_name"   default = "microstrain_inertial_driver" doc = "Name to give the Microstrain Inertial Driver" />
+  <arg name="debug"       default = "false"                       doc = "Whether or not to log debug information." />
+
+  <!-- Set the log level to debug -->
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find microstrain_inertial_driver)/config/custom_rosconsole.conf" if="$(arg debug)" />
+
+  <node name="$(arg node_name)" pkg="microstrain_inertial_driver" type="microstrain_inertial_driver_node" output="screen" ns="$(arg namespace)">
+    <rosparam file="$(find la_z_bot_bringup)/config/params.yml" command="load" />
+  </node>
+
+</launch>
