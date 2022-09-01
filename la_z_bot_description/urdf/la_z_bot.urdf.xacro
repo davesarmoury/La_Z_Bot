@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot name="iiwa7" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find zed_interfaces)/urdf/zed_descr.urdf.xacro"/>
+  <xacro:include filename="$(find zed_wrapper)/urdf/zed_descr.urdf.xacro"/>
   <xacro:include filename="$(find bunker_description)/urdf/bunkerPro.urdf.xacro"/>
 
   <joint name="zed_joint" type="fixed">

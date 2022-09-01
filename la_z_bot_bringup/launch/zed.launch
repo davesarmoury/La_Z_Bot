@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find zed_wrapper)/launch/zed2i.launch">
+    <arg name="publish_urdf" value="false" />
+
+    <arg name="base_frame" value="zed_link" />
+  </include>
+</launch>
