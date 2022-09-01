@@ -1,0 +1,9 @@
+[submodule "bunker_ros"]
+	path = bunker_ros
+	url = git@github.com:davesarmoury/bunker_ros.git
+[submodule "ugv_sdk"]
+	path = ugv_sdk
+	url = https://github.com/agilexrobotics/ugv_sdk.git
+[submodule "bunker_extras"]
+	path = bunker_extras
+	url = git@github.com:davesarmoury/bunker_extras.git
