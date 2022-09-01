@@ -8,4 +8,28 @@
     <child link="zed_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
   </joint>
+
+  <joint name="gq7_joint" type="fixed">
+    <parent link="front_mount_link" />
+    <child link="gq7_link" />
+    <origin xyz="-0.1 0.0 0.012" rpy="0 0 0"/>
+  </joint>
+
+  <link name="gq7_link" />
+
+  <joint name="gnss1_antenna_wgs84_joint" type="fixed">
+    <parent link="gq7_link" />
+    <child link="gnss1_antenna_wgs84" />
+    <origin xyz="0.0 0.5 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="gnss2_antenna_wgs84_joint" type="fixed">
+    <parent link="gq7_link" />
+    <child link="gnss2_antenna_wgs84" />
+    <origin xyz="0.0 -0.5 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="gnss1_antenna_wgs84" />
+  <link name="gnss2_antenna_wgs84" />
+
 </robot>
