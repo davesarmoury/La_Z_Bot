@@ -7,6 +7,6 @@
 [submodule "bunker_extras"]
 	path = bunker_extras
 	url = git@github.com:davesarmoury/bunker_extras.git
-[submodule "zed-ros-interfaces"]
-	path = zed-ros-interfaces
-	url = git@github.com:davesarmoury/zed-ros-interfaces.git
+[submodule "zed-ros-wrapper"]
+	path = zed-ros-wrapper
+	url = git@github.com:stereolabs/zed-ros-wrapper.git
