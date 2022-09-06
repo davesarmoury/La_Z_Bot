@@ -15,9 +15,9 @@
 # aux_port is only available for the GQ7 and is only needed when streaming RTCM corrections to the device from ROS, or if you want to publish NMEA sentences from this node
 port        : "/dev/ttyACM0"
 aux_port    : "/dev/ttyACM1"
-baudrate    : 115200
+baudrate    : 460800
 debug       : False
-diagnostics : False
+diagnostics : True
 
 # Frame IDs used in the different messages. By default these are set to arbitrary strings as not to interfere with other ROS services.
 # For more information on common frame IDs, check out: https://www.ros.org/reps/rep-0105.html
@@ -27,7 +27,7 @@ diagnostics : False
 imu_frame_id          : "gq7_link"
 gnss1_frame_id        : "gnss1_antenna_wgs84"
 gnss2_frame_id        : "gnss2_antenna_wgs84"
-filter_frame_id       : "gps_world"
+filter_frame_id       : "utm"
 filter_child_frame_id : "base_link"
 nmea_frame_id         : "nmea"
 
@@ -360,8 +360,8 @@ filter_init_attitude : [0.0, 0.0, 0.0]
 #
 #   Reference position - Units provided by reference frame (ECEF - meters, LLH - deg, deg, meters)
 #   Note: prior to firmware version 1.0.06 this command will fail for non-positive heights.  1.0.06 fixes this)
-publish_relative_position      : False
-filter_relative_position_frame : 2
+publish_relative_position      : True
+filter_relative_position_frame : 1
 filter_relative_position_ref   : [0.0, 0.0, 0.0]
 
 # (GQ7 only) Speed Lever Arm Configuration

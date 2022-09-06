@@ -4,9 +4,9 @@
   </node>
 
   <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true">
-    <remap from="/imu/data" to="/zed2i/zed_node/imu/data" />
+    <remap from="/imu/data" to="/nav/filtered_imu/data" />
     <remap from="/gps/fix" to="/gnss1/fix" />
-    <remap from="/odometry/filtered" to="/zed2i/zed_node/odom" />
+    <remap from="/odometry/filtered" to="/nav/odom" />
 
     <rosparam command="load" file="$(find la_z_bot_bringup)/config/gps_localization.yaml" />
   </node>
