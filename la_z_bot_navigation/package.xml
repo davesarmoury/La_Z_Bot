@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>la_z_bot_navigation</name>
-  <version>0.8.5</version>
+  <version>0.0.0</version>
   <description>Launch files and code for autonomous navigation of the la_z_bot</description>
   <maintainer email="davesarmoury@gmail.com">Dave Niewinski</maintainer>
   <license>CC-BY-3</license>

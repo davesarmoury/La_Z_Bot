@@ -3,8 +3,8 @@
     <rosparam file="$(find la_z_bot_navigation)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find la_z_bot_navigation)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
 
-    <rosparam file="$(find la_z_bot_navigation)/params/odom_nav_params/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find la_z_bot_navigation)/params/odom_nav_params/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find la_z_bot_navigation)/params/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find la_z_bot_navigation)/params/local_costmap_params.yaml" command="load" />
 
     <rosparam file="$(find la_z_bot_navigation)/params/base_local_planner_params.yaml" command="load" />
     <rosparam file="$(find la_z_bot_navigation)/params/move_base_params.yaml" command="load" />
@@ -13,5 +13,10 @@
     <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
 
     <remap from="odom" to="odometry/filtered" />
- </node>
+  </node>
+
+  <arg name="map_file" default="$(find la_z_bot_navigation)/map/empty.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+    <param name="frame_id" value="odom" />
+  </node>
 </launch>

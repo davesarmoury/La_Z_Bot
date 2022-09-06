@@ -11,3 +11,16 @@ oscillation_distance: 0.5
 
 recovery_behavior_enabled: true
 clearing_rotation_allowed: false
+
+recovery_behaviors:
+  - name: 'conservative_reset'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+  - name: 'aggressive_reset'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+conservative_reset:
+  reset_distance: 0.1
+  layer_names: ['obstacle_layer']
+aggressive_reset:
+  reset_distance: 0.0
+  layer_names: ['obstacle_layer']
+

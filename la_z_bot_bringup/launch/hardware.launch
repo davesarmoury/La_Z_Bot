@@ -3,4 +3,6 @@
     <include file="$(find la_z_bot_bringup)/launch/zed.launch" />
     <include file="$(find la_z_bot_bringup)/launch/microstrain.launch" />
     <include file="$(find la_z_bot_bringup)/launch/localization.launch" />
+    <include file="$(find la_z_bot_bringup)/launch/pcl.launch" />
+    <include file="$(find la_z_bot_bringup)/launch/urg.launch" />
 </launch>

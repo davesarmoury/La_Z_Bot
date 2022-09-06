@@ -15,6 +15,14 @@
     <origin xyz="-0.033 0.0 0.0" rpy="0 0 0"/>
   </joint>
 
+  <link name="urg_link" />
+
+  <joint name="urg_joint" type="fixed">
+    <parent link="front_mount_link" />
+    <child link="urg_link" />
+    <origin xyz="-0.1524 0.0 0.0762" rpy="0 0 0"/>
+  </joint>
+
   <joint name="gq7_joint" type="fixed">
     <parent link="rear_mount_link" />
     <child link="gq7_link" />

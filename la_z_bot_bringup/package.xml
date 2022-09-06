@@ -12,4 +12,6 @@
 
   <exec_depend>zed_wrapper</exec_depend>
   <exec_depend>robot_localization</exec_depend>
+  <exec_depend>pcl_ros</exec_depend>
+  <exec_depend>microstrain_inertial_driver</exec_depend>
 </package>
