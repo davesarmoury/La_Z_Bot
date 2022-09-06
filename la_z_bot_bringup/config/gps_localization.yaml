@@ -1,6 +1,6 @@
 magnetic_declination_radians: 0.1626
 yaw_offset: 1.5707
-frequency: 2.0
+frequency: 10.0
 use_odometry_yaw: true
 zero_altitude: true
 broadcast_cartesian_transform: true
