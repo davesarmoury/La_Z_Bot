@@ -24,11 +24,11 @@ diagnostics : False
 #
 # filter_frame_id and filter_child_frame_id are specifically useful as the node will also publish a transform to the /tf topic
 # that contains the transform between these two frames. Many ROS tools such as RViz will use the /tf topic to display things like robot position.
-imu_frame_id          : "gq7"
+imu_frame_id          : "gq7_link"
 gnss1_frame_id        : "gnss1_antenna_wgs84"
 gnss2_frame_id        : "gnss2_antenna_wgs84"
-filter_frame_id       : "sensor_wgs84"
-filter_child_frame_id : "gq7"
+filter_frame_id       : "gps_world"
+filter_child_frame_id : "base_link"
 nmea_frame_id         : "nmea"
 
 # Waits for a configurable amount of time until the device exists
@@ -134,7 +134,7 @@ gnss1_fix_info_data_rate       : -1  # Rate of gnss1/fix_info topic
 #     For GQ7 - in the vehicle frame wrt IMU origin (meters)
 #     For all other models - in the IMU frame wrt IMU origin (meters)
 #     Note: Make this as accurate as possible for good performance
-gnss1_antenna_offset : [0.0, 0.5, 0.0]
+gnss1_antenna_offset : [0.0, 0.37, -0.04]
 
 # GNSS2 settings are only applicable for multi-GNSS systems (e.g. GQ7) 
 publish_gnss2   : True
@@ -153,7 +153,7 @@ gnss2_fix_info_data_rate       : -1  # Rate of gnss2/fix_info topic
 
 # Antenna #2 lever arm offset vector (In the vehicle frame wrt IMU origin (meters) )
 #Note: Make this as accurate as possible for good performance 
-gnss2_antenna_offset : [0.0, -0.5, 0.0]
+gnss2_antenna_offset : [0.0, -0.37, 0.04]
 
 # (GQ7 Only) Enable RTK dongle interface
 # Note: Enabling this will cause the node to publish on one of two topics depending
@@ -209,11 +209,11 @@ filter_aiding_measurement_summary_data_rate : -1  # Rate of nav/aiding_summary t
 #            Quaternion order is [i, j, k, w]
 filter_sensor2vehicle_frame_selector : 1
 
-filter_sensor2vehicle_frame_transformation_euler      : [0.0, 0.0, 0.0]
+filter_sensor2vehicle_frame_transformation_euler      : [3.14159, 0.0, 0.0]
 filter_sensor2vehicle_frame_transformation_matrix     : [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
 filter_sensor2vehicle_frame_transformation_quaternion : [0.0, 0.0, 0.0, 1.0]
 
-  # Controls if the Kalman filter is reset after the settings are configured
+# Controls if the Kalman filter is reset after the settings are configured
 filter_reset_after_config : True
 
 # Controls if the Kalman filter will auto-init or requires manual initialization
@@ -268,7 +268,7 @@ filter_external_speed_topic : "/external_speed"
 # Velocity frame control.
 #      If set to false, the velocity will be reported in the NED/ENU frame
 #      If set to true, the velocity will be reported in the vehicle frame
-filter_vel_in_vehicle_frame : False
+filter_vel_in_vehicle_frame : True
 
 # Hardware Odometer Control
 enable_hardware_odometer : False
@@ -347,7 +347,7 @@ gpio_config    : False
 #   1 - WGS84 Earth-fixed, earth centered (ECEF) position, velocity, attitude
 #   2 - WGS84 Latitude, Longitude, height above ellipsoid position, NED velocity and attitude
 filter_init_condition_src              : 0
-filter_auto_heading_alignment_selector : 1
+filter_auto_heading_alignment_selector : 0
 filter_init_reference_frame            : 2
 filter_init_position : [0.0, 0.0, 0.0]
 filter_init_velocity : [0.0, 0.0, 0.0]
@@ -360,8 +360,8 @@ filter_init_attitude : [0.0, 0.0, 0.0]
 #
 #   Reference position - Units provided by reference frame (ECEF - meters, LLH - deg, deg, meters)
 #   Note: prior to firmware version 1.0.06 this command will fail for non-positive heights.  1.0.06 fixes this)
-publish_relative_position      : True
-filter_relative_position_frame : 1
+publish_relative_position      : False
+filter_relative_position_frame : 2
 filter_relative_position_ref   : [0.0, 0.0, 0.0]
 
 # (GQ7 only) Speed Lever Arm Configuration
@@ -382,7 +382,7 @@ filter_enable_vertical_gyro_constraint : False
 # (GQ7 only) GNSS Antenna Calibration Control
 #Note: When enabled, the filter will enable lever arm error tracking, up to the maximum offset specified in meters.
 filter_enable_gnss_antenna_cal     : False
-filter_gnss_antenna_cal_max_offset : 0.1
+filter_gnss_antenna_cal_max_offset : 0.2
 
 # (GQ7 only) PPS Source
 #    PPS Source =

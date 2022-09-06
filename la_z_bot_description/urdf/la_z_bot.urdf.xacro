@@ -1,18 +1,24 @@
 <?xml version="1.0"?>
-<robot name="iiwa7" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find zed_wrapper)/urdf/zed_descr.urdf.xacro"/>
+<robot name="bunker" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find bunker_description)/urdf/bunkerPro.urdf.xacro"/>
+  <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
+
+  <xacro:zed_camera name="zed2i" model="zed2i" parent="zed_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:zed_camera>
+
+  <link name="zed_link" />
 
   <joint name="zed_joint" type="fixed">
     <parent link="front_mount_link" />
     <child link="zed_link" />
-    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <origin xyz="-0.033 0.0 0.0" rpy="0 0 0"/>
   </joint>
 
   <joint name="gq7_joint" type="fixed">
-    <parent link="front_mount_link" />
+    <parent link="rear_mount_link" />
     <child link="gq7_link" />
-    <origin xyz="-0.1 0.0 0.012" rpy="0 0 0"/>
+    <origin xyz="0.25 0.0 0.0" rpy="0 0 0"/>
   </joint>
 
   <link name="gq7_link" />
@@ -20,13 +26,13 @@
   <joint name="gnss1_antenna_wgs84_joint" type="fixed">
     <parent link="gq7_link" />
     <child link="gnss1_antenna_wgs84" />
-    <origin xyz="0.0 0.5 0.0" rpy="0 0 0"/>
+    <origin xyz="0.0 0.37 -0.04" rpy="0 0 0"/>
   </joint>
 
   <joint name="gnss2_antenna_wgs84_joint" type="fixed">
     <parent link="gq7_link" />
     <child link="gnss2_antenna_wgs84" />
-    <origin xyz="0.0 -0.5 0.0" rpy="0 0 0"/>
+    <origin xyz="0.0 -0.37 -0.04" rpy="0 0 0"/>
   </joint>
 
   <link name="gnss1_antenna_wgs84" />

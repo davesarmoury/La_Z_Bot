@@ -9,7 +9,7 @@
   <env name="ROSCONSOLE_CONFIG_FILE" value="$(find microstrain_inertial_driver)/config/custom_rosconsole.conf" if="$(arg debug)" />
 
   <node name="$(arg node_name)" pkg="microstrain_inertial_driver" type="microstrain_inertial_driver_node" output="screen" ns="$(arg namespace)">
-    <rosparam file="$(find la_z_bot_bringup)/config/params.yml" command="load" />
+    <rosparam file="$(find la_z_bot_bringup)/config/microstrain_params.yaml" command="load" />
+    <remap from="tf" to="gq7_tf" />
   </node>
-
 </launch>

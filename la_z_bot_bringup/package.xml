@@ -11,4 +11,5 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <exec_depend>zed_wrapper</exec_depend>
+  <exec_depend>robot_localization</exec_depend>
 </package>

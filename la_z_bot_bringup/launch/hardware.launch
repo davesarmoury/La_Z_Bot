@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find la_z_bot_bringup)/launch/bunker.launch" />
+    <include file="$(find la_z_bot_bringup)/launch/zed.launch" />
+    <include file="$(find la_z_bot_bringup)/launch/microstrain.launch" />
+    <include file="$(find la_z_bot_bringup)/launch/localization.launch" />
+</launch>
