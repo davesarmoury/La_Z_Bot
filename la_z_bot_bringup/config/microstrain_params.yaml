@@ -28,7 +28,7 @@ imu_frame_id          : "gq7_link"
 gnss1_frame_id        : "gnss1_antenna_wgs84"
 gnss2_frame_id        : "gnss2_antenna_wgs84"
 filter_frame_id       : "utm"
-filter_child_frame_id : "base_link"
+filter_child_frame_id : "odom"
 nmea_frame_id         : "nmea"
 
 # Waits for a configurable amount of time until the device exists
@@ -50,7 +50,7 @@ device_setup : True
 # Controls if the driver-defined settings are saved
 #      false - Do not save the settings
 #      true  - Save the settings in the device's non-volatile memory
-save_settings : False
+save_settings : True
 
 # Controls if the driver uses the device generated timestamp (if available) for timestamping messages
 #      false - Use PC received time for timestamping
@@ -134,7 +134,7 @@ gnss1_fix_info_data_rate       : -1  # Rate of gnss1/fix_info topic
 #     For GQ7 - in the vehicle frame wrt IMU origin (meters)
 #     For all other models - in the IMU frame wrt IMU origin (meters)
 #     Note: Make this as accurate as possible for good performance
-gnss1_antenna_offset : [0.0, 0.37, -0.04]
+gnss1_antenna_offset : [0.28, -0.475, 0.0]
 
 # GNSS2 settings are only applicable for multi-GNSS systems (e.g. GQ7) 
 publish_gnss2   : True
@@ -153,7 +153,7 @@ gnss2_fix_info_data_rate       : -1  # Rate of gnss2/fix_info topic
 
 # Antenna #2 lever arm offset vector (In the vehicle frame wrt IMU origin (meters) )
 #Note: Make this as accurate as possible for good performance 
-gnss2_antenna_offset : [0.0, -0.37, 0.04]
+gnss2_antenna_offset : [0.28, 0.475, 0.0]
 
 # (GQ7 Only) Enable RTK dongle interface
 # Note: Enabling this will cause the node to publish on one of two topics depending
@@ -209,7 +209,7 @@ filter_aiding_measurement_summary_data_rate : -1  # Rate of nav/aiding_summary t
 #            Quaternion order is [i, j, k, w]
 filter_sensor2vehicle_frame_selector : 1
 
-filter_sensor2vehicle_frame_transformation_euler      : [3.14159, 0.0, 0.0]
+filter_sensor2vehicle_frame_transformation_euler      : [0.0, 0.0, 0.0]
 filter_sensor2vehicle_frame_transformation_matrix     : [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
 filter_sensor2vehicle_frame_transformation_quaternion : [0.0, 0.0, 0.0, 1.0]
 
@@ -371,17 +371,17 @@ filter_speed_lever_arm : [0.0, 0.0, 0.0]
 # (GQ7 only) Wheeled Vehicle Constraint Control
 #    Note: When enabled, the filter uses the assumption that velocity is constrained to the primary vehicle axis.
 #          By convention, the primary vehicle axis is the vehicle X-axis
-filter_enable_wheeled_vehicle_constraint : False
+filter_enable_wheeled_vehicle_constraint : True
 
 # (GQ7 only) Vertical Gyro Constraint Control
 #    Note: When enabled and no valid GNSS measurements are available, the filter uses the accelerometers to track
 #          pitch and roll under the assumption that the sensor platform is not undergoing linear acceleration.
 #          This constraint is useful to maintain accurate pitch and roll during GNSS signal outages.
-filter_enable_vertical_gyro_constraint : False
+filter_enable_vertical_gyro_constraint : True
 
 # (GQ7 only) GNSS Antenna Calibration Control
 #Note: When enabled, the filter will enable lever arm error tracking, up to the maximum offset specified in meters.
-filter_enable_gnss_antenna_cal     : False
+filter_enable_gnss_antenna_cal     : True
 filter_gnss_antenna_cal_max_offset : 0.2
 
 # (GQ7 only) PPS Source
