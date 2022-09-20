@@ -5,4 +5,5 @@
     <include file="$(find la_z_bot_bringup)/launch/localization.launch" />
     <include file="$(find la_z_bot_bringup)/launch/pcl.launch" />
     <include file="$(find la_z_bot_bringup)/launch/urg.launch" />
+    <node pkg="la_z_bot_bringup" name="dual_antenna_to_odom" type="dual_antenna_to_odom.py" />
 </launch>
