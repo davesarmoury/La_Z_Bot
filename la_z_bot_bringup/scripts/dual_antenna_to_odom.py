@@ -5,9 +5,6 @@ from microstrain_inertial_msgs.msg import GNSSDualAntennaStatus
 from nav_msgs.msg import Odometry
 from tf.transformations import quaternion_from_euler
 
-def Average(lst):
-    return sum(lst) / len(lst)
-
 def callback(msg):
     global pub
     odom_msg = Odometry()
@@ -22,7 +19,7 @@ def callback(msg):
     odom_msg.pose.pose.orientation.z = q[2]
     odom_msg.pose.pose.orientation.w = q[3]
 
-    odom_msg.pose.covariance[35] = msg.heading_uncertainty
+    #odom_msg.pose.covariance[35] = msg.heading_uncertainty
 
     pub.publish(odom_msg)
 
