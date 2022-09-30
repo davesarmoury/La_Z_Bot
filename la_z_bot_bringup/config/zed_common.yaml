@@ -16,7 +16,7 @@ auto_whitebalance:          true                                # Dynamic
 whitebalance_temperature:   42                                  # Dynamic - works only if `auto_whitebalance` is false
 depth_confidence:           30                                  # Dynamic
 depth_texture_conf:         100                                 # Dynamic
-pub_frame_rate:             15.0                                # Dynamic - frequency of publishing of video and depth data
+pub_frame_rate:             30.0                                # Dynamic - frequency of publishing of video and depth data
 point_cloud_freq:           10.0                                # Dynamic - frequency of the pointcloud publishing (equal or less to `grab_frame_rate` value)
 
 general:
@@ -24,7 +24,7 @@ general:
     zed_id:                     0
     serial_number:              0
     resolution:                 2                               # '0': HD2K, '1': HD1080, '2': HD720, '3': VGA
-    grab_frame_rate:            15                              # Frequency of frame grabbing for internal SDK operations
+    grab_frame_rate:            30                              # Frequency of frame grabbing for internal SDK operations
     gpu_id:                     -1
     base_frame:                 'base_link'                     # must be equal to the frame_id used in the URDF file
     verbose:                    false                           # Enable info message by the ZED SDK
@@ -49,7 +49,7 @@ pos_tracking:
     publish_map_tf:             false                           # publish `map -> odom` TF
     map_frame:                  'map'                           # main frame
     odometry_frame:             'odom'                          # odometry frame
-    area_memory_db_path:        'zed_area_memory.area'          # file loaded when the node starts to restore the "known visual features" map. 
+    area_memory_db_path:        'zed_area_memory.area'          # file loaded when the node starts to restore the "known visual features" map.
     save_area_memory_db_on_exit: false                          # save the "known visual features" map when the node is correctly closed to the path indicated by `area_memory_db_path`
     area_memory:                true                            # Enable to detect loop closure
     floor_alignment:            false                           # Enable to automatically calculate camera/floor offset
@@ -58,7 +58,7 @@ pos_tracking:
     path_pub_rate:              2.0                             # Camera trajectory publishing frequency
     path_max_count:             -1                              # use '-1' for unlimited path size
     two_d_mode:                 false                           # Force navigation on a plane. If true the Z value will be fixed to "fixed_z_value", roll and pitch to zero
-    fixed_z_value:              0.00                            # Value to be used for Z coordinate if `two_d_mode` is true    
+    fixed_z_value:              0.00                            # Value to be used for Z coordinate if `two_d_mode` is true
 
 mapping:
     mapping_enabled:            false                           # True to enable mapping and fused point cloud publication
@@ -66,5 +66,3 @@ mapping:
     max_mapping_range:          -1                              # maximum depth range while mapping in meters (-1 for automatic calculation) [2.0, 20.0]
     fused_pointcloud_freq:      1.0                             # frequency of the publishing of the fused colored point cloud
     clicked_point_topic:        '/clicked_point'                # Topic published by Rviz when a point of the cloud is clicked. Used for plane detection
-
-
