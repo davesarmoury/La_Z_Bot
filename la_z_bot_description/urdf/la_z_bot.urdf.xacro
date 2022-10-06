@@ -46,4 +46,18 @@
   <link name="gnss1_antenna_wgs84" />
   <link name="gnss2_antenna_wgs84" />
 
+  <joint name="comfy_joint" type="fixed">
+    <parent link="chassis_link" />
+    <child link="comfy_link" />
+    <origin xyz="0.0524015 0 0.460276" rpy="0 0 0"/>
+  </joint>
+
+  <link name="comfy_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://la_z_bot_description/meshes/FrankChair.dae"/>
+      </geometry>
+    </visual>
+  </link>
 </robot>
