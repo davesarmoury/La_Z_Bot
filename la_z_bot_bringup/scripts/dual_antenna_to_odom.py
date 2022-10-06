@@ -12,7 +12,7 @@ def callback(msg):
     odom_msg.header.frame_id = "utm"
     odom_msg.child_frame_id = "gq7_link"
 
-    q = quaternion_from_euler(0, 0, msg.heading)
+    q = quaternion_from_euler(0, 0, (-1) * -msg.heading)
 
     odom_msg.pose.pose.orientation.x = q[0]
     odom_msg.pose.pose.orientation.y = q[1]

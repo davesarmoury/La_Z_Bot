@@ -45,7 +45,7 @@ depth:
 
 pos_tracking:
     pos_tracking_enabled:       true                            # True to enable positional tracking from start
-    publish_tf:                 false                           # publish `odom -> base_link` TF
+    publish_tf:                 true                            # publish `odom -> base_link` TF
     publish_map_tf:             false                           # publish `map -> odom` TF
     map_frame:                  'map'                           # main frame
     odometry_frame:             'odom'                          # odometry frame

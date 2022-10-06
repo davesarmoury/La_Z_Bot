@@ -1,7 +1,7 @@
 <launch>
-  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+  <!-- node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
     <rosparam command="load" file="$(find la_z_bot_bringup)/config/robot_localization.yaml" />
-  </node>
+  </node -->
 
   <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true">
     <remap from="/imu/data" to="/nav/filtered_imu/data" />

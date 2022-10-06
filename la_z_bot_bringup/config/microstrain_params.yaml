@@ -28,7 +28,7 @@ imu_frame_id          : "gq7_link"
 gnss1_frame_id        : "gnss1_antenna_wgs84"
 gnss2_frame_id        : "gnss2_antenna_wgs84"
 filter_frame_id       : "utm"
-filter_child_frame_id : "odom"
+filter_child_frame_id : "base_link"
 nmea_frame_id         : "nmea"
 
 # Waits for a configurable amount of time until the device exists
