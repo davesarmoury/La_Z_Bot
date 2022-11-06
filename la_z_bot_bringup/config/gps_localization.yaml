@@ -1,5 +1,5 @@
 magnetic_declination_radians: 0.1626
-yaw_offset: 0.0
+yaw_offset: 1.5707963
 frequency: 2.0
 use_odometry_yaw: true
 zero_altitude: true
@@ -7,3 +7,4 @@ broadcast_cartesian_transform: true
 broadcast_cartesian_transform_as_parent_frame: true
 wait_for_datum: true
 datum: [43.57103, -80.83588, 0.0]
+publish_filtered_gps: true

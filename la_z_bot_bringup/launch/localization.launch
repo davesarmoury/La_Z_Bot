@@ -1,3 +1,4 @@
+
 <launch>
   <!-- node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
     <rosparam command="load" file="$(find la_z_bot_bringup)/config/robot_localization.yaml" />
@@ -6,7 +7,7 @@
   <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true">
     <remap from="/imu/data" to="/nav/filtered_imu/data" />
     <remap from="/gps/fix" to="/gnss1/fix" />
-    <remap from="/odometry/filtered" to="/nav/odom" />
+    <remap from="/odometry/filtered" to="/nav/dual_antenna_odom" />
 
     <rosparam command="load" file="$(find la_z_bot_bringup)/config/gps_localization.yaml" />
   </node>
