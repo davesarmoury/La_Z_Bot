@@ -7,21 +7,20 @@ from tf.transformations import quaternion_from_euler
 
 def callback(msg):
     global pub
-    odom_msg = Odometry()
-    odom_msg.header.stamp = rospy.Time.now()
-    odom_msg.header.frame_id = "utm"
-    odom_msg.child_frame_id = "gq7_link"
+    if msg.heading_uncertainty > 0.0 and msg.heading_uncertainty < 0.02:
+        odom_msg = Odometry()
+        odom_msg.header.stamp = rospy.Time.now()
+        odom_msg.header.frame_id = "utm"
+        odom_msg.child_frame_id = "gq7_link"
 
-    q = quaternion_from_euler(0, 0, msg.heading)
+        q = quaternion_from_euler(0, 0, msg.heading)
 
-    odom_msg.pose.pose.orientation.x = q[0]
-    odom_msg.pose.pose.orientation.y = q[1]
-    odom_msg.pose.pose.orientation.z = q[2]
-    odom_msg.pose.pose.orientation.w = q[3]
+        odom_msg.pose.pose.orientation.x = q[0]
+        odom_msg.pose.pose.orientation.y = q[1]
+        odom_msg.pose.pose.orientation.z = q[2]
+        odom_msg.pose.pose.orientation.w = q[3]
 
-    #odom_msg.pose.covariance[35] = msg.heading_uncertainty
-
-    pub.publish(odom_msg)
+        pub.publish(odom_msg)
 
 def main():
     global pub
